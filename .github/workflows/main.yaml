@@ -3,7 +3,7 @@ name: Publicar Pagina a Surge.sh
 on:
   push:
     branches:
-      - main  # Asegúrate de que el push se haga en la rama correcta
+      - main
 
 jobs:
   deploy:
@@ -13,13 +13,13 @@ jobs:
       - name: Clona el repositorio
         uses: actions/checkout@v3
 
-      - name: Configura Node.js
+      - name: Configura Node.js  
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '16'  
 
-      - name: Instala Surge
+      - name: Instala Surge       
         run: npm install --global surge
 
       - name: Publicar pagina
-        run: surge --project ./ --domain wikeson-diaz.surge.sh --token ${{ secrets.SURGE_API_KEY }}
+        run: surge --project ./ --domain ${{ secrets.Wikelson_Dominio }}.surge.sh --token ${{ secrets.SURGE_API_KEY }}  
